@@ -11,6 +11,11 @@
  */
 class Solution {
 public:
+    
+        //Here we will use dfs as we need to go from root to leaf
+        //Then we will find sum by converting base 2 to base 10
+        //This conversion will be done by multiplying by 2
+        //if both left and right are null then we will return the val obtained
         int dfs(TreeNode *root, int val) {
             
             if (root==NULL) 
@@ -25,7 +30,9 @@ public:
                 return left + right; 
             }
     }
+    
      int sumRootToLeaf(TreeNode *root) {
+         
         return dfs(root, 0);
     }
 
