@@ -6,7 +6,7 @@ public:
             for (int k = 1; k * k <= i; ++k) {
                 if (!dp[i - k * k]) {
                     dp[i] = true;
-                    // break;
+                    break;
                 }
             }
         }
