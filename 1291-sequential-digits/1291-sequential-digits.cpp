@@ -2,7 +2,7 @@ class Solution {
 public:
     vector<int> sequentialDigits(int l, int h) {
         queue<int> q;
-        for(int i = 1; i <= 9; i++) {
+        for(int i = 1; i < 9; i++) {
             q.push(i);
         }
         vector<int> ret;
@@ -12,7 +12,7 @@ public:
             if(f <= h && f >= l) {
                 ret.push_back(f);
             }
-            if(f >= h)
+            if(f > h)
                 break;
             int num = f % 10;
             if(num < 9) {
