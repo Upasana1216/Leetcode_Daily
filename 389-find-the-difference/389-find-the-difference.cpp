@@ -2,13 +2,14 @@ class Solution {
 public:
     char findTheDifference(string s, string t) {
         
-        char res = 0;
+        char ans = 0;
         int i = 0;
-        while(i < s.size()) {
-            res ^= s[i] ^ t[i];
-            i++;
+        for(i=0;i<s.size();i++){
+            
+            ans ^= s[i] ^ t[i];
+            
         }
         
-        return res ^ t[i];
+        return ans ^ t[i];
     }
 };
