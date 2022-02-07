@@ -1,7 +1,7 @@
 class Solution {
 public:
     char findTheDifference(string s, string t) {
-        int arr[50]={0};
+        int arr[26]={0};
         
         for(int i=0;i<t.size();i++){
             
@@ -11,7 +11,7 @@ public:
             arr[t[i]-'a']--;
         }
         
-        for(int i=0;i<50;i++)
+        for(int i=0;i<26;i++)
         {
             if(arr[i]==-1)
                 return char(i+'a');
