@@ -1,22 +1,14 @@
 class Solution {
 public:
     char findTheDifference(string s, string t) {
-        int arr[26]={0};
         
-        for(int i=0;i<t.size();i++){
-            
-            if(i<s.size())
-                arr[s[i]-'a']++;
-            
-            arr[t[i]-'a']--;
+        char res = 0;
+        int i = 0;
+        while(i < s.size()) {
+            res ^= s[i] ^ t[i];
+            i++;
         }
         
-        for(int i=0;i<26;i++)
-        {
-            if(arr[i]==-1)
-                return char(i+'a');
-        }
-        
-        return -1;
+        return res ^ t[i];
     }
 };
