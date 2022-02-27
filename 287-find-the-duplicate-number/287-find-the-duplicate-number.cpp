@@ -1,13 +1,21 @@
 class Solution {
 public:
     int findDuplicate(vector<int>& nums) {
-        unordered_map<int,int> m;
-        for(int i=0;i<nums.size();i++){
-            m[nums[i]]++;
-            if(m[nums[i]]>1)
-                return nums[i];
+        int left = 1, right = nums.size() - 1;
+        while(left < right) {
+            int mid = left + (right - left) / 2;
+            
+            // count the number of elements smaller/ equal than middle element
+            int c = 0;
+            for(const int& el: nums)
+                if(el <= mid)
+                    ++c;
+            
+            if(c > mid)
+                right = mid;
+            else
+                left = mid + 1;
         }
-        
-        return -1;
+        return left;
     }
 };
