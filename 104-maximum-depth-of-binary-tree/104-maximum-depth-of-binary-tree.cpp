@@ -17,29 +17,9 @@ public:
         if(!root)
             return 0;
         
-        queue<TreeNode*> q;
-        q.push(root);
-        q.push(NULL);
-        int res=1;
-        while(!q.empty()){
-            
-            TreeNode * t=q.front();
-            q.pop();
-            
-            if(t==NULL){
-                if (q.size() > 0) {
-                    q.push(NULL);
-                    res+=1;
-                }
-            }else{
-                
-                if(t->left)
-                    q.push(t->left);
-                if(t->right)
-                    q.push(t->right);
-            }
-            
-        }
-        return res;
+        int lh=maxDepth(root->left);
+        int rh=maxDepth(root->right);
+        
+        return 1+max(lh,rh);
     }
 };
